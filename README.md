@@ -50,3 +50,9 @@ Create crontab every hour:
   - Green color: IP is used
   - White color: IP is not used
   - Red color: IP was used but offline now, it may be able to be release?
+  
+# How to Supervise ?
+The log file is available in /var/log/phpipam_agent_api.log
+- Subnets on first line correspond to all subnets found by the agent that have a matched scanagent params activated.
+- For each IP scanned you can see its status, and below, the api action performed.
+> If you have some troubles check this file or cron log at /var/log/cron
