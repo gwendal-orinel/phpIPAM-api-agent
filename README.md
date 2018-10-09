@@ -32,3 +32,17 @@ In python script change variable for matching to main server:
   - app: app name of api key (“operator” in our case)
   - username: phpipam username
   - password: phpipam password
+  
+### Schedule the agent
+Create crontab every hour:
+```
+0 */1 * * * python /var/phpipam_agent_api.py > /var/log/phpipam_agent_api.log
+```
+
+# How to Use ?
+- On phpIPAM main server, for each outside networks accessible from agents server and declared in phpIPAM, edit subnet and activate check hosts status and select your agent
+- Every hour, agent will check and update subnet.
+- In bottom subnet available table, 3 colors are used:
+  - Green color: IP is used
+  - White color: IP is not used
+  - Red color: IP was used but offline now, it may be able to be release?
